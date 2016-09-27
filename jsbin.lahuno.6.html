@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Apamct (http://jsbin.com/lahuno/6/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+<meta name="description" content="[ora]">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Clock design</title>
+<style id="jsbin-css">
+html, body {
+  height: 100%;
+}
+
+* { margin: 0; padding: 0;}
+
+#clock {
+ font-family: 'Black Ops One', cursive;
+  text-align: center;
+  color: navy;
+  position: relative;
+  top: 50%;
+  font-size:92px;
+  font-weight: bold;
+  margin-top: -185px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+
+<script id="jsbin-javascript">
+
+function colorClock(){
+
+var date = new Date();
+
+var hours = date.getHours();
+var minutes = date.getMinutes(); 
+var seconds = date.getSeconds();
+
+
+if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+
+var clockFace = hours + '.' + minutes + '.' + seconds;
+var hexColor = '#00' + hours + minutes + seconds;
+
+document.getElementById('clock').innerHTML = clockFace ;
+document.body.style.background = hexColor;
+
+setTimeout(function() {
+    colorClock();
+  }, 1000);
+
+}
+
+colorClock();
+</script>
+</body>
+</html>
